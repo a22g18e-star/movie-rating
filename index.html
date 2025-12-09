@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Ratings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        .movie-card {
+            background: #1c1c1c;
+            padding: 15px;
+            margin: 15px auto;
+            width: 300px;
+            border-radius: 10px;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .stars span {
+            font-size: 25px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎬 Rate These Movies</h1>
+    <p>Click the stars to rate!</p>
+
+    <!-- Movie 1 -->
+    <div class="movie-card">
+        <h2>Inception</h2>
+        <img src="https://picsum.photos/300/150?random=1" alt="Inception">
+        <div class="stars" data-movie="Inception">
+            ★★★★★
+        </div>
+    </div>
+
+    <!-- Movie 2 -->
+    <div class="movie-card">
+        <h2>Avatar</h2>
+        <img src="https://picsum.photos/300/150?random=2" alt="Avatar">
+        <div class="stars" data-movie="Avatar">
+            ★★★★★
+        </div>
+    </div>
+
+    <!-- Movie 3 -->
+    <div class="movie-card">
+        <h2>Interstellar</h2>
+        <img src="https://picsum.photos/300/150?random=3" alt="Interstellar">
+        <div class="stars" data-movie="Interstellar">
+            ★★★★★
+        </div>
+    </div>
+
+    <script>
+        const stars = document.querySelectorAll('.stars');
+        
+        stars.forEach(starSet => {
+            starSet.addEventListener('click', function(e) {
+                const rating = [...this.textContent].indexOf(e.target.textContent) + 1;
+                const movie = this.getAttribute('data-movie');
+                alert(`You rated "${movie}" ⭐ ${rating}/5`);
+            });
+        });
+    </script>
+</body>
+</html>
